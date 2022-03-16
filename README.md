@@ -1,2 +1,2 @@
-# fiks
+# FIKS
 Master's dissertation
