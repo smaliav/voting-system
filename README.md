@@ -1,2 +1,2 @@
 # FIKS
-Master's dissertation
+Master's thesis
