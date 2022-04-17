@@ -1,6 +1,8 @@
 package ru.smaliav.fiks.common.`object`.chat
 
-enum class ChatMessageState(val desc: String) {
-    SENT    ("Отправлено"),
-    BLOCKED ("Заблокировано"),
+import ru.smaliav.fiks.common.`object`.IEnumWithId
+
+enum class ChatMessageState(override val id: Int, val desc: String): IEnumWithId<Int> {
+    SENT    (1, "Отправлено"),
+    BLOCKED (2, "Заблокировано"),
 }
