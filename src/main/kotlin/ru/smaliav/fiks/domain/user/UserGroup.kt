@@ -6,9 +6,12 @@ import ru.smaliav.fiks.domain.fiks.Fiks
 
 class UserGroup(
     val name: String,
-    val users: List<User>,
-    val fikses: List<Fiks>,
+    val type: UserGroupType,
+    // TODO Участники группы
+    // val userIds: List<User.Id>,
+    // TODO ФИКСы группы
+    // val fiksIds: List<Fiks.Id>,
 ): AggregateRoot<UserGroup.Id>() {
 
-    inner class Id: IntegerEntityId()
+    inner class Id(id: Int): IntegerEntityId(id)
 }

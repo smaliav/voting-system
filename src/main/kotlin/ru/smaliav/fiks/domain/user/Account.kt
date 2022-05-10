@@ -8,5 +8,5 @@ class Account: AggregateRoot<Account.Id>() {
 
     private val balance = BigDecimal.ZERO
 
-    inner class Id: IntegerEntityId()
+    inner class Id(id: Int): IntegerEntityId(id)
 }

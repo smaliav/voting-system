@@ -5,5 +5,5 @@ import ru.smaliav.fiks.common.`object`.IntegerEntityId
 
 class FiksChat(val name: String): AggregateRoot<FiksChat.Id>() {
 
-    inner class Id: IntegerEntityId()
+    inner class Id(id: Int): IntegerEntityId(id)
 }

@@ -9,5 +9,5 @@ class FiksPoll: AggregateRoot<FiksPoll.Id>() {
     var agreed = 0
     var rejected = 0
 
-    inner class Id: IntegerEntityId()
+    inner class Id(id: Int): IntegerEntityId(id)
 }

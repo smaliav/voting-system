@@ -12,5 +12,5 @@ class FiksProgress: AggregateRoot<FiksProgress.Id>() {
     private val stages = listOf(GroupStage(), ExpertStage(), PublicStage())
     val currentStage = stages.first()
 
-    inner class Id: IntegerEntityId()
+    inner class Id(id: Int): IntegerEntityId(id)
 }

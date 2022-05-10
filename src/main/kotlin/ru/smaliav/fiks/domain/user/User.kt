@@ -9,5 +9,5 @@ class User(
     val account: Account,
 ): AggregateRoot<User.Id>() {
 
-    inner class Id: IntegerEntityId()
+    inner class Id(id: Int): IntegerEntityId(id)
 }

@@ -8,5 +8,5 @@ import ru.smaliav.fiks.domain.user.User
  */
 abstract class DirectDistributionGate(val initiator: User) {
 
-    inner class Id: IntegerEntityId()
+    inner class Id(id: Int): IntegerEntityId(id)
 }

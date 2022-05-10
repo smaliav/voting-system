@@ -8,5 +8,5 @@ class GroupChat(val name: String): AggregateRoot<GroupChat.Id>() {
 
     private val messages = listOf<ChatMessage>()
 
-    inner class Id: IntegerEntityId()
+    inner class Id(id: Int): IntegerEntityId(id)
 }

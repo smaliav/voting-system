@@ -8,5 +8,5 @@ abstract class FiksProgressStage(val stageType: FiksStageType): AggregateRoot<Fi
 
     val poll = FiksPoll()
 
-    inner class Id: IntegerEntityId()
+    inner class Id(id: Int): IntegerEntityId(id)
 }

@@ -10,5 +10,5 @@ class ChatMessage(val sender: User, val content: String): AggregateRoot<ChatMess
     private val sent = Instant.now()
     private var state = ChatMessageState.SENT
 
-    inner class Id: IntegerEntityId()
+    inner class Id(id: Int): IntegerEntityId(id)
 }
