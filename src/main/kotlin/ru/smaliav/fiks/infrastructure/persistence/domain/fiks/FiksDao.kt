@@ -22,4 +22,13 @@ class FiksDao @Autowired constructor(
         return if (res.isNotEmpty()) res.first() else null
     }
 
+    fun saveOrUpdate(entity: FiksEntity): FiksEntity {
+        return if (entity.id == null) {
+            em.persist(entity)
+            entity;
+        } else {
+            em.merge(entity)
+        }
+    }
+
 }

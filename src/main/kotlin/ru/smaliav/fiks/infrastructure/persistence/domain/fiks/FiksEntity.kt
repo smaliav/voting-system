@@ -1,5 +1,6 @@
 package ru.smaliav.fiks.infrastructure.persistence.domain.fiks
 
+import ru.smaliav.fiks.infrastructure.persistence.domain.fiks.trg.FiksTargetEntity
 import java.time.Instant
 import javax.persistence.*
 
@@ -10,7 +11,7 @@ class FiksEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    val id: Int,
+    val id: Int?,
 
     @Column(name = "name")
     val name: String,
@@ -23,5 +24,9 @@ class FiksEntity(
 
     @Column(name = "description")
     val description: String,
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = [ CascadeType.ALL ])
+    @JoinColumn(name = "target")
+    val target: FiksTargetEntity
 
 )
