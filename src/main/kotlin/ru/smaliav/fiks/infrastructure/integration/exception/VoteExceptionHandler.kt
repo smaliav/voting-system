@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 
 @RestControllerAdvice
-class FiksExceptionHandler {
+class VoteExceptionHandler {
 
     @ExceptionHandler(EntityNotFoundException::class)
     fun handleEntityNotFoundException(e: EntityNotFoundException) = ExceptionResponse(
@@ -13,8 +13,11 @@ class FiksExceptionHandler {
     )
 
     @ExceptionHandler(InvalidNullException::class)
-    fun handleInvalidNullException(e: InvalidNullException) = ExceptionResponse(
-        HttpStatus.INTERNAL_SERVER_ERROR, e.message
-    )
+    fun handleInvalidNullException(e: InvalidNullException): ExceptionResponse {
+        e.printStackTrace() // TODO Заменить на LOGGER
+        return ExceptionResponse(
+            HttpStatus.INTERNAL_SERVER_ERROR, e.message
+        )
+    }
 
 }

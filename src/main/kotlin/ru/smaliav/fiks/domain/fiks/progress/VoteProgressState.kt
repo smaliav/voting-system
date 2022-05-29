@@ -2,7 +2,7 @@ package ru.smaliav.fiks.domain.fiks.progress
 
 import ru.smaliav.fiks.common.`object`.IEnumWithId
 
-enum class FiksProgressState(override val id: Int, private val desc: String): IEnumWithId<Int> {
+enum class VoteProgressState(override val id: Int, private val desc: String): IEnumWithId<Int> {
     CREATED              (1, "Создан"),
     MODERATING           (2, "На модерации"),
     MODERATING_REJECTED  (3, "Модерация не пройдена"),

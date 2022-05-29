@@ -5,16 +5,17 @@ import org.springframework.stereotype.Repository
 import javax.persistence.EntityManager
 import javax.persistence.PersistenceContext
 
+// TODO Унаследоваться от BaseDao (внимание на EntityManager)
 @Repository
-class FiksDao @Autowired constructor(
+class VoteDao @Autowired constructor(
     @PersistenceContext
     private val em: EntityManager,
 ) {
 
-    fun getById(id: Int): FiksEntity? {
+    fun getById(id: Int): VoteEntity? {
         val query = em.createQuery(
-            "SELECT t FROM FiksEntity t WHERE t.id = :id",
-            FiksEntity::class.java
+            "SELECT t FROM VoteEntity t WHERE t.id = :id",
+            VoteEntity::class.java
         )
         query.setParameter("id", id)
 
@@ -22,7 +23,7 @@ class FiksDao @Autowired constructor(
         return if (res.isNotEmpty()) res.first() else null
     }
 
-    fun saveOrUpdate(entity: FiksEntity): FiksEntity {
+    fun saveOrUpdate(entity: VoteEntity): VoteEntity {
         return if (entity.id == null) {
             em.persist(entity)
             entity;

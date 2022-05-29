@@ -1,13 +1,9 @@
-package ru.smaliav.fiks.domain.fiks.progress
+package ru.smaliav.fiks.domain.fiks.chat
 
 import ru.smaliav.fiks.common.`object`.AggregateRoot
 import ru.smaliav.fiks.common.`object`.IntegerEntityId
 
-class FiksPoll: AggregateRoot<FiksPoll.Id>() {
-
-    var voted = 0
-    var agreed = 0
-    var rejected = 0
+class VoteChat(val name: String): AggregateRoot<VoteChat.Id>() {
 
     inner class Id(id: Int): IntegerEntityId(id)
 }

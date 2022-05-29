@@ -6,11 +6,11 @@ import ru.smaliav.fiks.domain.fiks.progress.stage.ExpertStage
 import ru.smaliav.fiks.domain.fiks.progress.stage.GroupStage
 import ru.smaliav.fiks.domain.fiks.progress.stage.PublicStage
 
-class FiksProgress: AggregateRoot<FiksProgress.Id>() {
+class VoteProgress: AggregateRoot<VoteProgress.Id>() {
 
-    val state = FiksProgressState.CREATED
+    val state = VoteProgressState.CREATED
     private val stages = listOf(GroupStage(), ExpertStage(), PublicStage())
-    val currentStage = stages.first()
+    var currentStage = stages.first()
 
-    inner class Id(id: Int): IntegerEntityId(id)
+    class Id(id: Int): IntegerEntityId(id)
 }

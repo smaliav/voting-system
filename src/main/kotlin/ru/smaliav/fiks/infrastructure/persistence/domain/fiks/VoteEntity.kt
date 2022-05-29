@@ -1,12 +1,14 @@
 package ru.smaliav.fiks.infrastructure.persistence.domain.fiks
 
+import ru.smaliav.fiks.infrastructure.persistence.domain.fiks.progress.VoteProgressEntity
 import ru.smaliav.fiks.infrastructure.persistence.domain.fiks.trg.FiksTargetEntity
 import java.time.Instant
 import javax.persistence.*
 
+// TODO Переименовать табличку
 @Table(name = "fiks")
 @Entity
-class FiksEntity(
+class VoteEntity(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +29,10 @@ class FiksEntity(
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = [ CascadeType.ALL ])
     @JoinColumn(name = "target")
-    val target: FiksTargetEntity
+    val target: FiksTargetEntity,
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = [ CascadeType.ALL ])
+    @JoinColumn(name = "progress")
+    val progress: VoteProgressEntity
 
 )
