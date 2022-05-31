@@ -4,8 +4,7 @@ import ru.smaliav.voting.domain.vote.progress.VoteProgressState
 import ru.smaliav.voting.infrastructure.persistence.base.EntityWithId
 import javax.persistence.*
 
-// TODO Переименовать табличку
-@Table(name = "fiks_progress")
+@Table(name = "vote_progress")
 @Entity
 class VoteProgressEntity(
 

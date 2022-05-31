@@ -2,8 +2,7 @@ package ru.smaliav.voting.infrastructure.persistence.domain.vote.trg
 
 import javax.persistence.*
 
-// TODO Переименовать табличку
-@Table(name = "fiks_target")
+@Table(name = "vote_target")
 @Entity
 class FiksTargetEntity(
 
