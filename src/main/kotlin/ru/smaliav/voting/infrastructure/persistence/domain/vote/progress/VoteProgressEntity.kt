@@ -17,4 +17,4 @@ class VoteProgressEntity(
     @Column(name = "state")
     val state: VoteProgressState,
 
-    ) : EntityWithId
+) : EntityWithId

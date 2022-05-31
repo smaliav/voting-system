@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import ru.smaliav.voting.domain.vote.Vote
 import ru.smaliav.voting.domain.vote.VoteTarget
+import ru.smaliav.voting.infrastructure.persistence.domain.vote.chat.VoteChatConverter
 import ru.smaliav.voting.infrastructure.persistence.domain.vote.progress.VoteProgressConverter
 import ru.smaliav.voting.infrastructure.persistence.domain.vote.trg.VoteTargetConverter
 
@@ -11,6 +12,7 @@ import ru.smaliav.voting.infrastructure.persistence.domain.vote.trg.VoteTargetCo
 class VoteConverter @Autowired constructor(
     private val targetConverter: VoteTargetConverter,
     private val progressConverter: VoteProgressConverter,
+    private val chatConverter: VoteChatConverter,
 ) {
 
     fun e2b(entity: VoteEntity): Vote {
@@ -19,9 +21,10 @@ class VoteConverter @Autowired constructor(
             entity.expires,
             VoteTarget.Id(entity.target.id),
             progressConverter.eid2bid(entity.progress.id),
+            chatConverter.e2bid(entity.chat),
             entity.created,
         )
-        res.id = Vote.Id(entity.id!!)
+        res.id = Vote.Id(entity.id!!) // TODO Обратить на это внимание
         res.description = entity.description
 
         return res
@@ -36,6 +39,7 @@ class VoteConverter @Autowired constructor(
             business.description,
             targetConverter.bid2e(business.targetId),
             progressConverter.bid2e(business.progressId),
+            chatConverter.bid2e(business.chatId),
         )
     }
 
