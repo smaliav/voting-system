@@ -8,8 +8,8 @@ class UserGroup(
     val type: UserGroupType,
     // TODO Участники группы
     // val userIds: List<User.Id>,
-    // TODO ФИКСы группы
-    // val fiksIds: List<Fiks.Id>,
+    // TODO Голосования группы
+    // val voteIds: List<Vote.Id>,
 ): AggregateRoot<UserGroup.Id>() {
 
     inner class Id(id: Int): IntegerEntityId(id)
