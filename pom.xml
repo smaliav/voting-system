@@ -11,9 +11,9 @@
     </parent>
 
     <groupId>ru.smaliav</groupId>
-    <artifactId>fiks</artifactId>
+    <artifactId>voting</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>FIKS</name>
+    <name>Decision-making and Voting System</name>
     <description>Project for my master's thesis</description>
 
     <properties>
