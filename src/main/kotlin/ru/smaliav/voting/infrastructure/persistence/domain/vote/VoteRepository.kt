@@ -1,12 +1,11 @@
 package ru.smaliav.voting.infrastructure.persistence.domain.vote
 
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Repository
 import ru.smaliav.voting.domain.vote.Vote
 import ru.smaliav.voting.infrastructure.integration.exception.EntityNotFoundException
 
 @Repository
-class VoteRepository @Autowired constructor(
+class VoteRepository(
     private val voteDao: VoteDao,
     private val voteConverter: VoteConverter,
 ) {

@@ -1,6 +1,5 @@
 package ru.smaliav.voting.infrastructure.integration.vote
 
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import ru.smaliav.voting.domain.vote.Vote
 import ru.smaliav.voting.domain.vote.VoteTarget
@@ -13,7 +12,7 @@ import ru.smaliav.voting.infrastructure.persistence.domain.vote.progress.VotePro
 import javax.transaction.Transactional
 
 @Service
-class VoteService @Autowired constructor(
+class VoteService(
     private val voteRepo: VoteRepository,
     private val progressRepo: VoteProgressRepository,
     private val chatRepo: VoteChatRepository,

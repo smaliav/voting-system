@@ -1,11 +1,10 @@
 package ru.smaliav.voting.infrastructure.persistence.domain.vote.progress
 
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Repository
 import ru.smaliav.voting.domain.vote.progress.VoteProgress
 
 @Repository
-class VoteProgressRepository @Autowired constructor(
+class VoteProgressRepository(
     private val progressDao: VoteProgressDao,
     private val progressConverter: VoteProgressConverter,
 ) {

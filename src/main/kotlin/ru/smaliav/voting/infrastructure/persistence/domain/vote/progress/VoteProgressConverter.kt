@@ -1,12 +1,11 @@
 package ru.smaliav.voting.infrastructure.persistence.domain.vote.progress
 
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import ru.smaliav.voting.domain.vote.progress.VoteProgress
 import ru.smaliav.voting.infrastructure.integration.exception.InvalidNullException
 
 @Component
-class VoteProgressConverter @Autowired constructor(
+class VoteProgressConverter(
     private val progressDao: VoteProgressDao,
 ) {
 

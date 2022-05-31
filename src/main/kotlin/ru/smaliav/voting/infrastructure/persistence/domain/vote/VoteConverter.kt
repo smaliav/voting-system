@@ -1,6 +1,5 @@
 package ru.smaliav.voting.infrastructure.persistence.domain.vote
 
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import ru.smaliav.voting.domain.vote.Vote
 import ru.smaliav.voting.domain.vote.VoteTarget
@@ -9,7 +8,7 @@ import ru.smaliav.voting.infrastructure.persistence.domain.vote.progress.VotePro
 import ru.smaliav.voting.infrastructure.persistence.domain.vote.trg.VoteTargetConverter
 
 @Service
-class VoteConverter @Autowired constructor(
+class VoteConverter(
     private val targetConverter: VoteTargetConverter,
     private val progressConverter: VoteProgressConverter,
     private val chatConverter: VoteChatConverter,
