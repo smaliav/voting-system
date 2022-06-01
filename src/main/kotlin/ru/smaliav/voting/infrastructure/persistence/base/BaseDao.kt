@@ -4,7 +4,7 @@ import javax.persistence.EntityManager
 import javax.persistence.PersistenceContext
 
 // TODO Реализовать до конца (не инжектится EntityManager)
-abstract class BaseDao<E : EntityWithId> {
+abstract class BaseDao<E : EntityWithIntId> {
 
     @PersistenceContext protected lateinit var em: EntityManager
 

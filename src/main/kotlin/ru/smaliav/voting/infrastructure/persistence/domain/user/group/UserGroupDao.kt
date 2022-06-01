@@ -1,4 +1,4 @@
-package ru.smaliav.voting.infrastructure.persistence.domain.user
+package ru.smaliav.voting.infrastructure.persistence.domain.user.group
 
 import org.springframework.stereotype.Repository
 import ru.smaliav.voting.domain.user.UserGroupType

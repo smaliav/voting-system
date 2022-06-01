@@ -1,5 +1,5 @@
 package ru.smaliav.voting.infrastructure.persistence.base
 
-interface EntityWithId {
+interface EntityWithIntId {
     val id: Int?
 }

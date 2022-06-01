@@ -1,4 +1,4 @@
-package ru.smaliav.voting.infrastructure.persistence.domain.user
+package ru.smaliav.voting.infrastructure.persistence.domain.user.group
 
 import ru.smaliav.voting.domain.user.UserGroupType
 import javax.persistence.*

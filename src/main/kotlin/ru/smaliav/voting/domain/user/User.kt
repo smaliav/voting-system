@@ -5,9 +5,11 @@ import ru.smaliav.voting.common.`object`.IntegerEntityId
 
 class User(
     val nickname: String,
-    val roles: List<UserRole>,
-    val account: Account,
+    // TODO Роли
+    // val roles: List<UserRole>,
+    // TODO Счет
+    // val account: Account,
 ): AggregateRoot<User.Id>() {
 
-    inner class Id(id: Int): IntegerEntityId(id)
+    class Id(id: Int): IntegerEntityId(id)
 }
