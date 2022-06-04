@@ -8,6 +8,10 @@ class VoteProgress(
     val groupStageId: VoteProgressStage.Id,
 ): AggregateRoot<VoteProgress.Id>() {
 
+    var expertStageId: VoteProgressStage.Id? = null
+    var publicStageId: VoteProgressStage.Id? = null
+    var state = VoteProgressState.CREATED
+
     // Конструктор для конвертации
     constructor(
         id: Id,
@@ -21,10 +25,6 @@ class VoteProgress(
         this.publicStageId = publicStageId
         this.state = state
     }
-
-    var expertStageId: VoteProgressStage.Id? = null
-    var publicStageId: VoteProgressStage.Id? = null
-    var state = VoteProgressState.CREATED
 
     class Id(id: Int): IntegerEntityId(id)
 }
