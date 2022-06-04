@@ -26,15 +26,15 @@ class VoteService(
 ) {
 
     @Transactional
-    fun createVote(voteDto: VoteDto): Vote {
+    fun createVote(newVoteDto: NewVoteDto): Vote {
         val vote = Vote(
-            voteDto.name,
-            voteDto.expires,
-            VoteTarget.Id(voteDto.targetId),
+            newVoteDto.name,
+            newVoteDto.expires,
+            VoteTarget.Id(newVoteDto.targetId),
             createVoteProgress(),
-            createVoteChat(voteDto.name)
+            createVoteChat(newVoteDto.name)
         )
-        vote.description = voteDto.description
+        vote.description = newVoteDto.description
 
         return voteRepo.save(vote)
     }

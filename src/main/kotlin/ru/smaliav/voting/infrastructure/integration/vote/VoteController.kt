@@ -17,8 +17,8 @@ class VoteController(
     }
 
     @PostMapping("/")
-    fun createFiks(@RequestBody voteDto: VoteDto): Vote {
-        return voteService.createVote(voteDto)
+    fun createFiks(@RequestBody newVoteDto: NewVoteDto): Vote {
+        return voteService.createVote(newVoteDto)
     }
 
 }
