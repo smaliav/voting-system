@@ -9,6 +9,11 @@ class VotePollRepository(
     private val pollConverter: VotePollConverter,
 ) {
 
+    fun getById(id: Int): VotePoll {
+        val entity = pollDao.getById(id)
+        return pollConverter.e2b(entity)
+    }
+
     fun save(poll: VotePoll): VotePoll {
         var entity = pollConverter.b2e(poll)
         entity = pollDao.saveOrUpdate(entity)

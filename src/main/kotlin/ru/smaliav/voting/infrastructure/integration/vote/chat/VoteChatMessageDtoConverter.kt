@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component
 import ru.smaliav.voting.domain.user.User
 import ru.smaliav.voting.domain.vote.chat.VoteChat
 import ru.smaliav.voting.domain.vote.chat.VoteChatMessage
-import ru.smaliav.voting.infrastructure.integration.base.DtoToBusinessConverter
+import ru.smaliav.voting.infrastructure.integration.base.converter.DtoToBusinessConverter
 import ru.smaliav.voting.infrastructure.integration.exception.InvalidNullException
 
 @Component
