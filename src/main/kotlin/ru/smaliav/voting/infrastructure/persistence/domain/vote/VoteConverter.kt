@@ -3,6 +3,7 @@ package ru.smaliav.voting.infrastructure.persistence.domain.vote
 import org.springframework.stereotype.Service
 import ru.smaliav.voting.domain.vote.Vote
 import ru.smaliav.voting.domain.vote.VoteTarget
+import ru.smaliav.voting.infrastructure.integration.exception.InvalidNullException
 import ru.smaliav.voting.infrastructure.persistence.domain.vote.chat.VoteChatConverter
 import ru.smaliav.voting.infrastructure.persistence.domain.vote.progress.VoteProgressConverter
 import ru.smaliav.voting.infrastructure.persistence.domain.vote.trg.VoteTargetConverter
@@ -37,7 +38,7 @@ class VoteConverter(
             business.created,
             business.description,
             targetConverter.bid2e(business.targetId),
-            progressConverter.bid2e(business.progressId),
+            progressConverter.bid2e(business.progressId) ?: throw InvalidNullException(),
             chatConverter.bid2e(business.chatId),
         )
     }

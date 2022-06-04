@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component
 import ru.smaliav.voting.domain.vote.chat.VoteChat
 import ru.smaliav.voting.infrastructure.integration.exception.InvalidNullException
 
+// TODO Реализовать интерфейс BusinessToEntityConverter
 @Component
 class VoteChatConverter(
     private val chatDao: VoteChatDao,

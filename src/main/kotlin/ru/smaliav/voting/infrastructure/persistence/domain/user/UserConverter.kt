@@ -29,7 +29,8 @@ class UserConverter(
         return business
     }
 
-    override fun e2bid(entity: UserEntity): User.Id {
+    override fun e2bid(entity: UserEntity?): User.Id? {
+        if (entity == null) return null
         val id = entity.id ?: throw EntityToBusinessIdConversionException(
             UserEntity::class, User.Id::class
         )
@@ -38,7 +39,8 @@ class UserConverter(
 
     override fun b2eid(business: User): Int? = business.id?.value
 
-    override fun bid2e(businessId: User.Id): UserEntity {
+    override fun bid2e(businessId: User.Id?): UserEntity? {
+        if (businessId == null) return null
         val id = businessId.value ?: throw BusinessIdToEntityConversionException(User.Id::class, UserEntity::class)
         return userDao.getById(id)
     }

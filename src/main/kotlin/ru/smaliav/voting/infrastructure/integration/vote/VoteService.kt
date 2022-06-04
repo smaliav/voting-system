@@ -5,10 +5,13 @@ import ru.smaliav.voting.domain.vote.Vote
 import ru.smaliav.voting.domain.vote.VoteTarget
 import ru.smaliav.voting.domain.vote.chat.VoteChat
 import ru.smaliav.voting.domain.vote.progress.VoteProgress
+import ru.smaliav.voting.domain.vote.progress.stage.VoteProgressStage
+import ru.smaliav.voting.domain.vote.progress.stage.VoteProgressStageType
 import ru.smaliav.voting.infrastructure.integration.exception.InvalidNullException
 import ru.smaliav.voting.infrastructure.persistence.domain.vote.VoteRepository
 import ru.smaliav.voting.infrastructure.persistence.domain.vote.chat.VoteChatRepository
 import ru.smaliav.voting.infrastructure.persistence.domain.vote.progress.VoteProgressRepository
+import ru.smaliav.voting.infrastructure.persistence.domain.vote.progress.stage.VoteProgressStageRepository
 import javax.transaction.Transactional
 
 @Service
@@ -16,6 +19,7 @@ class VoteService(
     private val voteRepo: VoteRepository,
     private val progressRepo: VoteProgressRepository,
     private val chatRepo: VoteChatRepository,
+    private val stageRepo: VoteProgressStageRepository,
 ) {
 
     @Transactional
@@ -33,8 +37,14 @@ class VoteService(
     }
 
     fun createVoteProgress(): VoteProgress.Id {
-        val progress = VoteProgress()
+        val progress = VoteProgress(createGroupStage())
         return progressRepo.save(progress)
+    }
+
+    fun createGroupStage(): VoteProgressStage.Id {
+        var groupStage = VoteProgressStage(VoteProgressStageType.GROUP)
+        groupStage = stageRepo.save(groupStage)
+        return groupStage.id ?: throw InvalidNullException()
     }
 
     fun createVoteChat(voteName: String): VoteChat.Id {

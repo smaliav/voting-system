@@ -12,8 +12,8 @@ interface BusinessToEntityConverter<
     fun b2e(business: B): E
     fun e2b(entity: E): B
     // Конвертация в Id
-    fun e2bid(entity: E): BID
+    fun e2bid(entity: E?): BID?
     fun b2eid(business: B): Int?
     // Конвератция из Id
-    fun bid2e(businessId: BID): E
+    fun bid2e(businessId: BID?): E?
 }
