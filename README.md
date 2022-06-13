@@ -1,2 +1,2 @@
-# FIKS
+# Voting System
 Master's thesis
